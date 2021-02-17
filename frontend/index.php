@@ -82,7 +82,7 @@
 
     <section>
     <!-- Komponen Isi --> 
-        <div class="container-fluid">
+        <div class="container-fluid mb-5">
             <?php include "konten.php"; ?>
         </div>
     </section>

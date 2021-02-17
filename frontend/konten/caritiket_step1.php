@@ -31,7 +31,7 @@
     <td><?= $r['rute_from']; ?></td>
     <td><?= $r['rute_to']; ?></td>
     <td><?= $r['price']; ?></td>
-    <td><button class="btn btn-outline-primary"><i class="fas fa-shopping-cart"></i> Beli</button></td>
+    <td><a href="index.php?p=caritiket-step2&id=<?= $r['id']; ?>"><button class="btn btn-outline-primary"><i class="fas fa-shopping-cart"></i> Beli</button></a></td>
   </tr>
 <?php
   }

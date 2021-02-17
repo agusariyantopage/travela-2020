@@ -8,6 +8,8 @@
 		include "konten/caritiket.php";}
 	elseif($_GET['p']=='caritiket-step1'){
 			include "konten/caritiket_step1.php";}	
+	elseif($_GET['p']=='caritiket-step2'){
+			include "konten/caritiket_step2.php";}	
 	elseif($_GET['p']=='hubungikami'){
 		include "konten/hubungikami.php";}
 	elseif($_GET['p']=='login'){
