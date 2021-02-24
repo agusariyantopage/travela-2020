@@ -55,7 +55,7 @@
       
 ?>
               <li class="nav-item">
-                <a class="nav-link" href="#"><?= $_SESSION['namapelanggan']; ?></a>
+                <a class="nav-link" href="index.php?p=daftarbooking"><?= $_SESSION['namapelanggan']; ?></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="logout.php">Logout</a>

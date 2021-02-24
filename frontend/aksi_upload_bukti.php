@@ -11,6 +11,7 @@
         // echo "File Berhasil Di Upload";
         $sql1="update reservation set bukti_pembayaran='$x2' where id=$x1";
         mysqli_query($koneksi,$sql1);
+        header('location:index.php?p=suksesupload');
 
     } else {
         echo "File Gagal Di Upload";

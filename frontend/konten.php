@@ -12,6 +12,12 @@
 			include "konten/caritiket_step2.php";}	
 	elseif($_GET['p']=='suksesbooking'){
 			include "konten/suksesbooking.php";}	
+	elseif($_GET['p']=='suksesupload'){
+			include "konten/suksesupload.php";}	
+	elseif($_GET['p']=='daftarbooking'){
+			include "konten/daftarbooking.php";}	
+	elseif($_GET['p']=='reupload'){
+			include "konten/reupload.php";}	
 	elseif($_GET['p']=='hubungikami'){
 		include "konten/hubungikami.php";}
 	elseif($_GET['p']=='login'){
