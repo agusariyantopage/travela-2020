@@ -1,5 +1,5 @@
 <!-- Tampilan Tabel Pelanggan -->
-<div id="content-wrapper">
+<div id="content-wrapper"> 
 	<div class=container-fluid>
 		<!-- Judul Menu -->
 		<ol class="breadcrumb">
@@ -22,48 +22,42 @@
 					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 						<thead>
 							<th>ID</th>
-							<th>Kode Reservasi</th>
+							<th>Nama Perusahaan</th>
 							<th>Pemesanan Dari</th>
-							<th>Tanggal Reservasi</th>
-							<th>Id Pelanggan</th>
-							<th>Kode Kursi</th>
-							<th>Id Rute</th>
-							<th>Id Kedatangan</th>
-							<th>Harga</th>
-							<th>Id User</th>
+							<th>Tgl Pesan</th>
+							<th>Rute Asal</th>
+							<th>Rute Tujuan</th>
+							<th>Bukti Upload</th>
+							<th>Status</th>
 							<th>Aksi</th>
 						</thead>
 						<tfoot>
 							<th>ID</th>
-							<th>Kode Reservasi</th>
+							<th>Nama Perusahaan</th>
 							<th>Pemesanan Dari</th>
-							<th>Tanggal Reservasi</th>
-							<th>Id Pelanggan</th>
-							<th>Kode Kursi</th>
-							<th>Id Rute</th>
-							<th>Id Kedatangan</th>
-							<th>Harga</th>
-							<th>Id User</th>
+							<th>Tgl Pesan</th>
+							<th>Rute Asal</th>
+							<th>Rute Tujuan</th>
+							<th>Bukti Upload</th>
+							<th>Status</th>
 							<th>Aksi</th>
 						</tfoot>
 						<tbody>
 <?php
-	$sql="select * from reservation";
+	$sql="select reservation.*,rute.rute_from,rute.rute_to,transportation.description from reservation,rute,transportation where reservation.ruteid=rute.id and rute.transportationid=transportation.id";
 	$perintah=mysqli_query($koneksi,$sql);
 	while ($r=mysqli_fetch_array($perintah)) {		
 	
 ?>							
 							<tr>
 								<td><?= $r['id']; ?></td>
-								<td><?= $r['reservation_code']; ?>
+								<td><?= $r['description']; ?>
 								<td><?= $r['reservation_at']; ?></td>
 								<td><?= $r['reservation_date']; ?></td>
-								<td><?= $r['customer_id']; ?></td>
-								<td><?= $r['seat_code']; ?></td>
-								<td><?= $r['ruteid']; ?></td>
-								<td><?= $r['depart_id']; ?></td>
-								<td><?= $r['price']; ?></td>
-								<td><?= $r['userid']; ?></td>
+								<td><?= $r['rute_from']; ?></td>
+								<td><?= $r['rute_to']; ?></td>
+								<td><img height="100" src="../frontend/buktibayar/<?= $r['bukti_pembayaran']; ?>"></td>
+								<td><?= $r['status']; ?></td>
 								<td>
 <a href="index.php?p=editpemesanan&id=<?= $r['id']; ?>"><span class="fas fa-edit"></span></a>
 &nbsp;
@@ -77,9 +71,7 @@
 					</table>
 				</div>
 			</div>
-			<a href="index.php?p=addrute" class="btn btn-success">
-				<span class="fas fa-fw fa-file" aria-hidden=true></span>Tambah
-			</a>
+			
 			<div class="card-footer small text-muted">
 				Terakhir Update Kemarin Jam 14:00
 			</div>
