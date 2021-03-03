@@ -39,9 +39,21 @@
     <td><img height="100" src="buktibayar/<?= $r['bukti_pembayaran']; ?>"></td>
     <td><?= $r['status']; ?></td>
     <td>
+<?php
+  if($r['status']!='Terbayar'){
+?>    
     <a onclick="return confirm('Yakin Akan Membatalkan Booking?')" href="aksi_hapus_booking.php?id=<?= $r['id']; ?>"><button class="btn btn-outline-primary"><i class="fas fa-window-close"></i> Cancel</button></a>
     <a href="index.php?p=reupload&id=<?= $r['id']; ?>"><button class="btn btn-outline-primary"><i class="fas fa-file-upload"></i> Upload</button></a>
-    <a href="# ?>"><button class="btn btn-outline-primary"><i class="fas fa-ticket-alt"></i> E-Ticket</button></a>
+<?php
+  }
+?>
+<?php
+  if($r['status']=='Terbayar'){
+?>    
+    <a href="pdf/cetak_tiket.php?id=<?= $r['id']; ?>" target="blank"><button class="btn btn-outline-primary"><i class="fas fa-ticket-alt"></i> E-Ticket</button></a>
+<?php
+  }
+?>
     </td>
   </tr>
 <?php

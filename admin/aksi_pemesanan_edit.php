@@ -11,6 +11,7 @@
 
 	// Perintah Update Tabel
 	$sql="update reservation set reservation_code='$x2',seat_code='$x3',status='$x4',alasan_ditolak='$x5' where id=$x1";
+	//echo $sql;
 	mysqli_query($koneksi,$sql);
 
 	// Mengarahkan Ke Halaman Daftar

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2021 at 06:38 AM
+-- Generation Time: Mar 03, 2021 at 04:34 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -54,7 +54,7 @@ INSERT INTO `customer` (`id`, `name`, `address`, `phone`, `gender`, `username`, 
 
 CREATE TABLE `reservation` (
   `id` int(10) NOT NULL,
-  `reservation_code` varchar(15) NOT NULL,
+  `reservation_code` varchar(15) DEFAULT NULL,
   `reservation_at` varchar(30) NOT NULL,
   `reservation_date` date NOT NULL,
   `customer_id` int(10) NOT NULL,
@@ -62,38 +62,25 @@ CREATE TABLE `reservation` (
   `ruteid` int(10) NOT NULL,
   `depart_id` int(10) NOT NULL,
   `price` int(15) NOT NULL,
-  `userid` int(10) NOT NULL
+  `userid` int(10) NOT NULL,
+  `tgl_berangkat` date NOT NULL,
+  `jam_berangkat` time NOT NULL,
+  `status` varchar(100) NOT NULL DEFAULT 'Pending',
+  `bukti_pembayaran` varchar(100) NOT NULL,
+  `alasan_ditolak` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `reservation`
 --
 
-INSERT INTO `reservation` (`id`, `reservation_code`, `reservation_at`, `reservation_date`, `customer_id`, `seat_code`, `ruteid`, `depart_id`, `price`, `userid`) VALUES
-(1, '0001', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(2, '0002', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(3, '0003', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(4, '0001', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(5, '0002', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(6, '0003', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(7, '0001', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(8, '0002', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(9, '0003', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(10, '0001', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(11, '0002', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(12, '0003', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(13, '0001', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(14, '0002', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(15, '0003', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(16, '0001', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(17, '0002', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(18, '0003', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(19, '0001', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(20, '0002', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(21, '0003', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(22, '0001', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(23, '0002', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1),
-(24, '0003', 'Denpasar', '2020-10-06', 1, 'A1', 1, 1, 20000000, 1);
+INSERT INTO `reservation` (`id`, `reservation_code`, `reservation_at`, `reservation_date`, `customer_id`, `seat_code`, `ruteid`, `depart_id`, `price`, `userid`, `tgl_berangkat`, `jam_berangkat`, `status`, `bukti_pembayaran`, `alasan_ditolak`) VALUES
+(2, 'BOOK-0001', 'Pelabuhan Gilimanuk', '2021-02-22', 2, 'H6', 6, 6, 10000, 0, '2021-02-23', '18:30:00', 'Terbayar', 'Tunggakan.jpg', ''),
+(3, NULL, 'Stasiun Gambir', '2021-02-22', 2, '', 11, 11, 15000, 0, '2021-02-23', '11:06:00', 'Pending', 'KTP_MAS.jpg', NULL),
+(4, '1', 'Stasiun Tanjung Wangi', '2021-02-22', 2, '2', 12, 12, 75000, 0, '2021-02-23', '11:22:00', 'Ditolak', 'pp.jpg', 'Gambarnya Tidak Sesuai , Mohon Upload Gambar Struk ATM Jangan Foto Anda'),
+(8, NULL, 'Pelabuhan Gilimanuk', '2021-02-24', 1, '', 6, 6, 10000, 0, '2021-02-24', '11:10:00', 'Pending', 'IMG_20210105_165544 - Yunda Pradnyaswari.jpg', NULL),
+(10, NULL, 'Stasiun Senen', '2021-02-24', 1, '', 14, 14, 15000, 0, '2021-02-25', '11:30:00', 'Pending', '', NULL),
+(11, 'BOOK-0002', 'Bandara Ngurah Rai', '2021-02-24', 1, 'H2', 3, 3, 1500000, 0, '2021-02-24', '11:30:00', 'Terbayar', 'nota.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -193,7 +180,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `fullname`, `level`) VALUES
-(1, 'admin', 'admin@ytsj', 'Mimin Sarumin', 1),
+(1, 'admin', '1234', 'Mimin Sarumin', 1),
 (2, 'kasir', 'kasir', 'Desi Permata Sari\r\n', 2),
 (3, 'bunga', 'bunga', 'bunga', 3);
 
@@ -251,7 +238,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `rute`
